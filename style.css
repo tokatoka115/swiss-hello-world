@@ -1,0 +1,74 @@
+/* Swiss/International Typography Style Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Grid Foundation */
+html, body {
+    height: 100%;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    background-color: #FAFAFA;
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main Grid Container */
+main {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Typography - Swiss Style */
+h1 {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    text-align: center;
+    color: #111111;
+    
+    /* Swiss grid alignment */
+    margin: 0;
+    padding: 0;
+    
+    /* Subtle grid-based spacing */
+    position: relative;
+}
+
+/* Responsive adjustments maintaining Swiss principles */
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        letter-spacing: -0.02em;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: clamp(2rem, 12vw, 3rem);
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    h1 {
+        font-weight: 400;
+        letter-spacing: -0.01em;
+    }
+}
