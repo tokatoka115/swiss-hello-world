@@ -11,6 +11,7 @@ class TennisCourtMap {
         this.renderCourtsList();
         this.setupEventListeners();
         this.updateLastUpdate();
+        this.updateStatistics();
     }
 
     // 地図初期化
@@ -368,11 +369,71 @@ class TennisCourtMap {
         // リストと地図を更新
         this.renderCourtsList();
         this.addMarkersToMap();
+        this.updateResultCount();
     }
 
     // 最終更新日設定
     updateLastUpdate() {
         document.getElementById('lastUpdate').textContent = tennisCourtData.metadata.lastUpdated;
+    }
+
+    // 統計情報更新
+    updateStatistics() {
+        // 総コート数計算
+        const totalCourtCount = tennisCourtData.courts.reduce((sum, court) => {
+            return sum + court.courts.reduce((courtSum, c) => courtSum + c.count, 0);
+        }, 0);
+
+        // 料金範囲計算
+        const prices = tennisCourtData.courts.map(court => court.pricing.weekdays.daytime);
+        const minPrice = Math.min(...prices);
+        const maxPrice = Math.max(...prices);
+
+        // コート種類計算
+        const courtTypes = new Set();
+        tennisCourtData.courts.forEach(court => {
+            court.courts.forEach(c => courtTypes.add(c.type));
+        });
+
+        // 表示更新
+        document.getElementById('totalCourts').textContent = tennisCourtData.courts.length;
+        document.getElementById('totalCourtCount').textContent = totalCourtCount;
+        document.getElementById('priceRange').textContent = `¥${minPrice}-¥${maxPrice}`;
+        document.getElementById('courtTypes').textContent = courtTypes.size;
+        
+        // 結果件数更新
+        this.updateResultCount();
+    }
+
+    // 結果件数更新
+    updateResultCount() {
+        document.getElementById('resultCount').textContent = this.filteredData.length;
+    }
+
+    // クイック検索機能
+    quickFilter(type, value) {
+        // すべてのクイックボタンをリセット
+        document.querySelectorAll('.quick-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // 現在のボタンをアクティブに
+        event.target.classList.add('active');
+
+        // フィルターをリセット
+        document.getElementById('courtType').value = '';
+        document.getElementById('membershipRequired').value = '';
+        document.getElementById('priceRange').value = '';
+
+        if (type === 'price') {
+            document.getElementById('priceRange').value = value;
+        } else if (type === 'court') {
+            document.getElementById('courtType').value = value;
+        } else if (type === 'membership') {
+            document.getElementById('membershipRequired').value = value;
+        }
+
+        this.applyFilters();
     }
 }
 

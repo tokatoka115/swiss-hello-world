@@ -60,20 +60,76 @@
                 </div>
             </section>
 
-            <!-- マップとリスト表示 -->
-            <div class="content-grid">
-                <!-- 地図エリア -->
-                <section class="map-section">
-                    <div id="map" class="map-container"></div>
-                </section>
+            <!-- メインコンテンツエリア -->
+            <div class="main-content">
+                <!-- 左側: 地図とサマリー -->
+                <div class="left-section">
+                    <!-- 地図エリア -->
+                    <section class="map-section">
+                        <div id="map" class="map-container"></div>
+                    </section>
+                    
+                    <!-- 統計サマリー -->
+                    <section class="stats-section">
+                        <h3 class="stats-title">データベース概要</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number" id="totalCourts">17</div>
+                                <div class="stat-label">施設数</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="totalCourtCount">-</div>
+                                <div class="stat-label">コート数</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="priceRange">¥200-¥2750</div>
+                                <div class="stat-label">料金帯</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number" id="courtTypes">4</div>
+                                <div class="stat-label">コート種類</div>
+                            </div>
+                        </div>
+                        
+                        <!-- クイック検索 -->
+                        <div class="quick-search">
+                            <h4>クイック検索</h4>
+                            <div class="quick-buttons">
+                                <button class="quick-btn" onclick="tennisApp.quickFilter('price', 'low')">
+                                    <i class="fas fa-coins"></i>
+                                    格安(〜¥1000)
+                                </button>
+                                <button class="quick-btn" onclick="tennisApp.quickFilter('court', 'クレイコート')">
+                                    <i class="fas fa-mountain"></i>
+                                    クレイコート
+                                </button>
+                                <button class="quick-btn" onclick="tennisApp.quickFilter('membership', 'false')">
+                                    <i class="fas fa-user-check"></i>
+                                    会員不要
+                                </button>
+                                <button class="quick-btn" onclick="tennisApp.quickFilter('lighting', 'true')">
+                                    <i class="fas fa-lightbulb"></i>
+                                    ナイター可
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
 
-                <!-- コートリスト -->
-                <section class="courts-list">
-                    <h2 class="section-title">テニスコート一覧</h2>
-                    <div id="courtsList" class="courts-grid">
-                        <!-- JavaScriptで動的生成 -->
-                    </div>
-                </section>
+                <!-- 右側: コートリスト -->
+                <div class="right-section">
+                    <section class="courts-list">
+                        <div class="list-header">
+                            <h2 class="section-title">テニスコート一覧</h2>
+                            <div class="result-count">
+                                <span id="resultCount">17</span>件の施設
+                            </div>
+                        </div>
+                        <div id="courtsList" class="courts-grid">
+                            <!-- JavaScriptで動的生成 -->
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </main>
