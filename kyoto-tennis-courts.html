@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京都テニスコート マップ | Kyoto Tennis Courts Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tennis-courts.css">
+    
+    <!-- Leaflet CSS for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">
+                <i class="fas fa-table-tennis"></i>
+                京都テニスコート マップ
+            </h1>
+            <p class="header-subtitle">京都の一般利用可能なテニスコートを探す</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- フィルター -->
+            <section class="filters">
+                <div class="filter-group">
+                    <label for="courtType">コート種別:</label>
+                    <select id="courtType">
+                        <option value="">すべて</option>
+                        <option value="ハードコート">ハードコート</option>
+                        <option value="オムニコート">オムニコート</option>
+                        <option value="クレイコート">クレイコート</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="membershipRequired">会員登録:</label>
+                    <select id="membershipRequired">
+                        <option value="">すべて</option>
+                        <option value="false">不要</option>
+                        <option value="true">必要</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="priceRange">料金帯:</label>
+                    <select id="priceRange">
+                        <option value="">すべて</option>
+                        <option value="low">〜1000円</option>
+                        <option value="medium">1000〜2000円</option>
+                        <option value="high">2000円〜</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- マップとリスト表示 -->
+            <div class="content-grid">
+                <!-- 地図エリア -->
+                <section class="map-section">
+                    <div id="map" class="map-container"></div>
+                </section>
+
+                <!-- コートリスト -->
+                <section class="courts-list">
+                    <h2 class="section-title">テニスコート一覧</h2>
+                    <div id="courtsList" class="courts-grid">
+                        <!-- JavaScriptで動的生成 -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- コート詳細モーダル -->
+    <div id="courtModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="courtDetails">
+                <!-- JavaScriptで動的生成 -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 京都テニスコートマップ | データ最終更新: <span id="lastUpdate"></span></p>
+            <p class="note">※料金・営業時間は変更される場合があります。事前に各施設にご確認ください。</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="tennis-courts-data.js"></script>
+    <script src="tennis-courts.js"></script>
+</body>
+</html>
