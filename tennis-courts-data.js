@@ -851,11 +851,68 @@ const tennisCourtData = {
         "weekendMorning": "混雑",
         "weekendEvening": "やや混雑"
       }
+    },
+    {
+      "id": 16,
+      "name": "京都市岡崎公園テニスコート",
+      "location": {
+        "address": "京都市左京区岡崎最勝寺町13",
+        "lat": 35.0156,
+        "lng": 135.7839
+      },
+      "contact": {
+        "phone": "075-771-6466",
+        "website": ""
+      },
+      "schedule": {
+        "weekdays": "6:00-21:00",
+        "weekends": "6:00-21:00",
+        "holidays": "6:00-21:00"
+      },
+      "reservation": {
+        "unitHours": 1,
+        "advanceBooking": "2週間前から",
+        "membershipRequired": false,
+        "onlineBooking": false,
+        "bookingUrl": ""
+      },
+      "courts": [
+        {
+          "type": "クレイコート",
+          "count": 12,
+          "lighting": true
+        }
+      ],
+      "pricing": {
+        "weekdays": {
+          "daytime": 410,
+          "evening": 820
+        },
+        "weekends": {
+          "daytime": 820,
+          "evening": 820
+        }
+      },
+      "facilities": [
+        "更衣室",
+        "シャワー",
+        "駐車場（有料）",
+        "自動販売機",
+        "トイレ"
+      ],
+      "notes": "岡崎エリアの大規模クレイコート施設。平安神宮・美術館エリアに立地。朝6時から利用可能。",
+      "lastUpdated": "2024-05-01",
+      "crowdingInfo": {
+        "weekdayMorning": "やや混雑",
+        "weekdayEvening": "混雑",
+        "weekendMorning": "非常に混雑",
+        "weekendEvening": "非常に混雑"
+      }
     }
   ],
   "metadata": {
     "lastUpdated": "2024-05-01",
-    "totalCourts": 15,
-    "dataVersion": "2.0"
+    "totalCourts": 16,
+    "dataVersion": "2.1"
   }
 };
