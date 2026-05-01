@@ -908,11 +908,67 @@ const tennisCourtData = {
         "weekendMorning": "非常に混雑",
         "weekendEvening": "非常に混雑"
       }
+    },
+    {
+      "id": 17,
+      "name": "淀水垂運動公園テニスコート",
+      "location": {
+        "address": "京都市伏見区淀新町",
+        "lat": 34.8944,
+        "lng": 135.7333
+      },
+      "contact": {
+        "phone": "075-631-5326",
+        "website": ""
+      },
+      "schedule": {
+        "weekdays": "9:00-17:00",
+        "weekends": "9:00-17:00",
+        "holidays": "9:00-17:00"
+      },
+      "reservation": {
+        "unitHours": 2,
+        "advanceBooking": "1週間前から",
+        "membershipRequired": false,
+        "onlineBooking": false,
+        "bookingUrl": ""
+      },
+      "courts": [
+        {
+          "type": "ハードコート",
+          "count": 4,
+          "lighting": false
+        }
+      ],
+      "pricing": {
+        "weekdays": {
+          "daytime": 200,
+          "evening": 200
+        },
+        "weekends": {
+          "daytime": 200,
+          "evening": 200
+        }
+      },
+      "facilities": [
+        "駐車場（無料）",
+        "自動販売機",
+        "トイレ",
+        "芝生広場"
+      ],
+      "notes": "淀駅近く、下水処理場上部を活用したユニークな立地の運動公園。格安料金で地域住民に愛用されている。",
+      "lastUpdated": "2024-05-01",
+      "crowdingInfo": {
+        "weekdayMorning": "空いている",
+        "weekdayEvening": "普通",
+        "weekendMorning": "やや混雑",
+        "weekendEvening": "普通"
+      }
     }
   ],
   "metadata": {
     "lastUpdated": "2024-05-01",
-    "totalCourts": 16,
-    "dataVersion": "2.1"
+    "totalCourts": 17,
+    "dataVersion": "2.2"
   }
 };
